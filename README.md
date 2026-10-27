@@ -18,7 +18,7 @@
   <strong><a href="#quick-start">Quick start</a> · <a href="#inference">Inference</a> · <a href="#license">License</a> · <a href="#citation">Citation</a></strong>
 </p>
 
-https://github.com/user-attachments/assets/1da61bfb-d6e3-4b2f-95be-8ea6e3841733
+https://github.com/user-attachments/assets/4024a8e7-1d7a-445f-a255-144225b01d42
 
 ## Quick start
 

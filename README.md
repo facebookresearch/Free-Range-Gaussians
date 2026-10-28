@@ -12,7 +12,7 @@
 <p align="center">
   <a href="https://arxiv.org/abs/2604.04874"><img src="https://img.shields.io/badge/arXiv-Paper-b31b1b?style=flat&amp;logo=arxiv&amp;logoColor=white&amp;labelColor=24292f" height="20" alt="Paper on arXiv"></a>
   <a href="https://free-range-gaussians.github.io"><img src="https://img.shields.io/badge/Project-Page-2563eb?style=flat&amp;labelColor=24292f" height="20" alt="Project page"></a>
-  <a href="https://huggingface.co/Ahanio/free-range-gaussians"><img src="https://img.shields.io/badge/Hugging_Face-Weights-ffd21e?style=flat&amp;logo=huggingface&amp;logoColor=ffd21e&amp;labelColor=24292f" height="20" alt="Hugging Face model weights"></a>
+  <a href="https://huggingface.co/facebook/free-range-gaussians"><img src="https://img.shields.io/badge/Hugging_Face-Weights-ffd21e?style=flat&amp;logo=huggingface&amp;logoColor=ffd21e&amp;labelColor=24292f" height="20" alt="Hugging Face model weights"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/Code-MIT-2563eb?style=flat&amp;logo=github&amp;logoColor=white&amp;labelColor=24292f" height="20" alt="Code license: MIT"></a>
   <a href="MODEL_LICENSE"><img src="https://img.shields.io/badge/Model-FAIR_NC-7259c7?style=flat&amp;labelColor=24292f" height="20" alt="Model license: FAIR Noncommercial Research"></a><br>
   <strong><a href="#quick-start">Quick start</a> · <a href="#inference">Inference</a> · <a href="#license">License</a> · <a href="#citation">Citation</a></strong>
@@ -35,13 +35,13 @@ pip install -e .
 
 ### 2. Download the checkpoint
 
-Request access on [Hugging Face](https://huggingface.co/Ahanio/free-range-gaussians).
+Request access on [Hugging Face](https://huggingface.co/facebook/free-range-gaussians).
 After approval, authenticate with the same account and download the weights
 from this code checkout:
 
 ```bash
 hf auth login
-hf download Ahanio/free-range-gaussians frg_ckpt.pt --local-dir checkpoint
+hf download facebook/free-range-gaussians frg_ckpt.pt --local-dir checkpoint
 ```
 
 The inference checkpoint is loaded from `checkpoint/frg_ckpt.pt`.

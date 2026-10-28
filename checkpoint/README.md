@@ -10,7 +10,7 @@ After approval, run these commands from the code checkout:
 
 ```bash
 hf auth login
-hf download Ahanio/free-range-gaussians frg_ckpt.pt --local-dir checkpoint
+hf download facebook/free-range-gaussians frg_ckpt.pt --local-dir checkpoint
 ```
 
 The inference checkpoint contains only `model_state_dict`, with the
@@ -27,5 +27,5 @@ The Free-Range Gaussians weights are licensed under the
 [FAIR Noncommercial Research License](../MODEL_LICENSE), including the FAIR
 Acceptable Use Policy. The bundled DINOv2 encoder parameters retain their
 upstream Apache 2.0 license. See the model repository's
-[third-party notices](https://huggingface.co/Ahanio/free-range-gaussians/blob/main/THIRD_PARTY_NOTICES.md).
+[third-party notices](https://huggingface.co/facebook/free-range-gaussians/blob/main/THIRD_PARTY_NOTICES.md).
 

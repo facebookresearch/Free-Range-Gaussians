@@ -14,7 +14,7 @@ PACKAGE_ROOT = Path(__file__).resolve().parent
 RELEASE_ROOT = PACKAGE_ROOT.parent
 CONFIG_PATH = PACKAGE_ROOT / "config.yaml"
 CHECKPOINT_PATH = RELEASE_ROOT / "checkpoint" / "frg_ckpt.pt"
-CHECKPOINT_REPO_ID = "Ahanio/free-range-gaussians"
+CHECKPOINT_REPO_ID = "facebook/free-range-gaussians"
 CHECKPOINT_DOWNLOAD_URL = f"https://huggingface.co/{CHECKPOINT_REPO_ID}"
 
 

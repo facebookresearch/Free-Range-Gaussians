@@ -1,0 +1,60 @@
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+#
+# This source code is licensed under the MIT license found in the
+# LICENSE file in the root directory of this source tree.
+
+name: Validate release
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install CPU validation dependencies
+        run: |
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.7.1
+          python -m pip install "numpy>=1.26,<3" "Pillow>=10,<13"
+      - name: Check Python and shell syntax
+        run: |
+          python -m compileall -q free_range_gs
+          bash -n run_example.sh
+      - name: Check project source headers
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess
+          paths = subprocess.check_output(["git", "ls-files"], text=True).splitlines()
+          for name in paths:
+              if name.endswith((".py", ".sh", ".yaml", ".yml", ".toml")):
+                  first_lines = "\n".join(Path(name).read_text().splitlines()[:16])
+                  assert "Copyright" in first_lines, name
+                  assert "Meta Platforms, Inc. and affiliates" in first_lines, name
+          PY
+      - name: Validate bundled scenes
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from free_range_gs.scene import load_scene
+          paths = sorted(Path("examples").glob("*/scene_*.json"))
+          assert paths, "No bundled scenes found"
+          for path in paths:
+              scene = load_scene(path, image_size=512)
+              assert scene.images.device.type == "cpu", path
+              print(f"Validated {path}")
+          PY

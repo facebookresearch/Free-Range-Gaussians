@@ -12,6 +12,10 @@ Third-party components retain the licenses below.
 - **DINOv2:** the released checkpoint includes image-encoder parameters from
   [`facebook/dinov2-base`](https://huggingface.co/facebook/dinov2-base), which retain
   Apache 2.0. The code loads these parameters from the supplied checkpoint.
+- **Google Scanned Objects:** the bundled example images and scene data are
+  derived from Google Research's Google Scanned Objects dataset, released under
+  [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Dataset source:
+  [Google Scanned Objects on Gazebo Fuel](https://app.gazebosim.org/).
 
 Other dependencies retain their upstream licenses. The complete Apache 2.0
 text is included below for the Apache-licensed components.

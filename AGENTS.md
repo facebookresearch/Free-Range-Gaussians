@@ -10,6 +10,9 @@ additional user or workspace policies.
   Training and full benchmark reproduction are separate tasks.
 - Use the approved Hugging Face checkpoint. Keep weights, tokens, environments,
   and generated runs out of commits.
+- Read `.github/CONTRIBUTING.md` for the submission workflow. The source of truth
+  is the configured internal Meta repository; maintainers land changes internally
+  and publish them through ShipIt. Community contributions use GitHub pull requests.
 
 ## Prepare and run
 

@@ -23,7 +23,7 @@ dependencies = [
   "Pillow>=10,<13",
   "plyfile>=1.1,<2",
   "PyYAML>=6,<7",
-  "torch>=2.5,<2.8",
+  "torch>=2.5,<2.14",
   "transformers>=4.46,<5",
 ]
 

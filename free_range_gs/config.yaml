@@ -1,0 +1,55 @@
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+#
+# This source code is licensed under the MIT license found in the
+# LICENSE file in the root directory of this source tree.
+
+model:
+  flow_model: true
+  image_encoder:
+    model_name: facebook/dinov2-base
+    input_size: 512
+    freeze_backbone: true
+    feature_dim: 809
+    patch_size: 14
+    use_camera_conditioning: true
+    use_downsampled_colors: true
+    use_img_pe: true
+  point_generator:
+    num_points: 8192
+    feature_dim: 809
+    hidden_dim: 1024
+    num_layers: 18
+    num_heads: 16
+    attention_head_dim: 64
+    dropout: 0.1
+    activation_fn: geglu
+    attention_bias: false
+    use_mixed_precision: false
+    use_gaussian_param_pe: false
+    patch_size: 2
+    permute: false
+    use_render_grads: true
+    backbone_type: transformer1d
+  x_0_prediction: true
+
+normalization:
+  pos_mean: [0, 0, 0.03]
+  pos_std: [0.185, 0.185, 0.23]
+  log_scale_mean: -4
+  log_scale_std: 1.0
+  color_mean: 0.5
+  color_std: 0.28
+  logit_alpha_mean: 0.01
+  logit_alpha_std: 3.2
+  rot_mean: 0.0
+  rot_std: 1.0
+
+inference:
+  image_size: 512
+  num_views: 4
+  num_gaussians: 8192
+  euler_steps: 50
+  seed: 42
+  cfg_scale: 2.0
+  render_grads_scale: 50.0
+  background: black
